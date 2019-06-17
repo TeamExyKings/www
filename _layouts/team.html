@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% include header.html type="page" %}
+
+<div class="container active-with-click">
+
+  <div class="row active-with-click">
+
+    {% for element in site.data.Team %}
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <article class="material-card {% cycle 'Red','Pink','Purple','Deep-Purple','Indigo','Blue','Orange','Deep-Orange','Lime','Blue-Grey','Green' %}">
+            <h2>
+                <span>{{ element.name }}</span>
+                <strong>
+                    <i class="fa fa-fw fa-star"></i>
+                    {{ element.title }}
+                </strong>
+            </h2>
+            <div class="mc-content">
+                <div class="img-container">
+                    <img class="img-responsive" src="/img/Team/{{ element.image }}">
+                </div>
+                <div class="mc-description">
+                    {{ element.description }}
+                </div>
+            </div>
+            <a class="mc-btn-action">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="mc-footer">
+                <h4>
+                    Social
+                </h4>
+                <a class="fab fa-fw fa-telegram" href="https://{{ element.telegram }}"></a>
+                <a class="fab fa-fw fa-twitter" href="https://{{ element.twitter }}"></a>
+                <a class="fab fa-fw fa-linkedin" href="https://{{ element.linkedin }}"></a>
+                <a class="fab fa-fw fa-github" href="https://{{ element.github }}"></a>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="post-card">
+      <div class="post-card-image" style="background-image: url({{ post.image }})"></div>
+ <div class="post-card-body">
+   <div class="post-card-content-link">
+       <header class="post-card-header">
+           <span class="post-card-tags">{{ post.device_id }}</span>
+           <h2 class="post-card-title">{{ post.title }}</h2>
+       </header>
+       <section class="post-card-excerpt">
+            <p>{{ post.excerpt }}</p>
+       </section>
+       <div class="text-center">
+         <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-primary btn-lg">Read</a>
+       </div>
+   </div>
+   <footer class="post-card-meta">
+     {% for dev in site.data.Team %}
+     {% if dev.name == post.author %}
+     <img class="author-profile-image" src="/img/Team/{{ dev.image }}"/>
+     {% endif %}
+     {% endfor %}
+
+      <span class="post-card-author"><a href="#" class="custom-link">{{ post.author }}</a></span>
+      <span class="reading-time">{{ post.date | date_to_string }}</span>
+   </footer>
+ </div>
+</div>

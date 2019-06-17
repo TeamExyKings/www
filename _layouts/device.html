@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% include header.html type="page" %}
+
+<div class="container">
+
+  <div class="header-card">
+    {% for device in site.data.Devices %}
+    {% if page.device_id == device.codename %}
+    <div class="col-lg-4">
+      <img class="header-card-image" src="{{ device.image }}" alt="">
+    </div>
+    <div class="col-lg-8">
+      <ul>
+        <li class="custom-li"><i class="fa fa-mobile-alt custom-fa-fw"></i>Device Name : {{ device.name }}</li>
+        <li class="custom-li"><i class="fa fa-mobile-alt custom-fa-fw"></i>Supported Models : {{ device.models }}</li>
+        <li class="custom-li"><i class="fab fa-android custom-fa-fw"></i>Supported Android Version : {{ device.android_versions }}</li>
+        <li class="custom-li"><i class="fas fa-code custom-fa-fw"></i>Developers : {{ device.developers }}</li>
+        <li class="custom-li"><i class="fab fa-telegram custom-fa-fw"></i>Telegram Group : <a href="https://{{ device.telegram_group }}">{{ device.name }}</a></li>
+        <li class="custom-li"><i class="fab fa-telegram custom-fa-fw"></i>Telegram Channel : <a href="https://{{ device.telegram_channel }}">{{ device.telegram_channel }}</a></li>
+      </ul>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="post-card-feed">
+
+    {% for post in site.posts %}
+    {% if post.device_id == page.device_id %}
+    {% include post.html %}
+    {% endif %}
+   {% endfor %}
+
+
+  </div>
+</div>
